@@ -29,14 +29,14 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Bar Chart Example
 // Tomado de https://www.datos.gov.co/dataset/Producci-n-Frutales-Valle-del-Cauca-2016/8xap-gecf
-var requestbarURL = 'https://www.datos.gov.co/resource/8xap-gecf.json';
-var requestbar = new XMLHttpRequest();
-requestbar.open('GET', requestbarURL);
-requestbar.responseType = 'json';
+var requestURL = 'https://www.datos.gov.co/resource/8xap-gecf.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
 
-requestbar.send();
-requestbar.onload = function() {
-  var cantfrutas = requestbar.response;
+request.send();
+request.onload = function() {
+  var cantfrutas = request.response;
   getData(cantfrutas);
 }
 
