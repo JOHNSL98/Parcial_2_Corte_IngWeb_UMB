@@ -36,12 +36,12 @@ requestarea.responseType = 'json';
 requestarea.send();
 requestarea.onload = function() {
   var canthomicidios = requestarea.response;
-  getData(canthomicidios);
+  getDataHO(canthomicidios);
 }
     
-function getData(jsonObj) {
+function getDataHO(jsonObj) {
 
-  var filas = jsonObj.slice(0,1000);
+  var homicidios = jsonObj.slice(0,1000);
 
   var lunes = 0;
   var martes = 0;
@@ -51,26 +51,26 @@ function getData(jsonObj) {
   var sabado = 0;
   var domingo = 0;
 
-  for(var i = 0; i < filas.length; i++) {
-    if(filas[i].d_a == "Lunes"){
+  for(var i = 0; i < homicidios.length; i++) {
+    if(homicidios[i].d_a == "Lunes"){
       lunes++;
     }
-    if(filas[i].d_a == "Martes"){
+    if(homicidios[i].d_a == "Martes"){
       martes++;
     }
-    if(filas[i].d_a == "Miercoles"){
+    if(homicidios[i].d_a == "Miercoles"){
       miercoles++;
     }
-    if(filas[i].d_a == "Jueves"){
+    if(homicidios[i].d_a == "Jueves"){
       jueves++;
     }
-    if(filas[i].d_a == "Viernes"){
+    if(homicidios[i].d_a == "Viernes"){
       viernes++;
     }
-    if(filas[i].d_a == "Sabado"){
+    if(homicidios[i].d_a == "Sabado"){
       sabado++;
     }
-    if(filas[i].d_a == "Domingo"){
+    if(homicidios[i].d_a == "Domingo"){
       domingo++;
     }
   }

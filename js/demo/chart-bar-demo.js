@@ -29,38 +29,38 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Bar Chart Example
 // Tomado de https://www.datos.gov.co/dataset/Producci-n-Frutales-Valle-del-Cauca-2016/8xap-gecf
-var requestURL = 'https://www.datos.gov.co/resource/8xap-gecf.json';
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
+var requestbarURL = 'https://www.datos.gov.co/resource/8xap-gecf.json';
+var requestbar = new XMLHttpRequest();
+requestbar.open('GET', requestbarURL);
+requestbar.responseType = 'json';
 
-request.send();
-request.onload = function() {
-  var cantfrutas = request.response;
-  getData(cantfrutas);
+requestbar.send();
+requestbar.onload = function() {
+  var cantfrutas = requestbar.response;
+  getDataFR(cantfrutas);
 }
 
-function getData(jsonObj) {
+function getDataFR(jsonObj) {
 
-  var filas = jsonObj.slice(0,50);
+  var frutas = jsonObj.slice(0,42);
 
   var cali = 0;
   var buenaventura = 0;
   var buga = 0;
   var palmira = 0;
 
-  for(var i = 0; i < filas.length; i++) {
-    if(filas[i].municipios == "Cali") {
-      cali += Number(filas[i].aguacate);
+  for(var i = 0; i < frutas.length; i++) {
+    if(frutas[i].municipios == "Cali") {
+      cali += Number(frutas[i].aguacate);
     }
-    if(filas[i].municipios == "Buenaventura") {
-      buenaventura += Number(filas[i].aguacate);
+    if(frutas[i].municipios == "Buenaventura") {
+      buenaventura += Number(frutas[i].aguacate);
     }
-    if(filas[i].municipios == "Buga") {
-      buga += Number(filas[i].aguacate);
+    if(frutas[i].municipios == "Buga") {
+      buga += Number(frutas[i].aguacate);
     }
-    if(filas[i].municipios == "Palmira") {
-      palmira += Number(filas[i].aguacate);
+    if(frutas[i].municipios == "Palmira") {
+      palmira += Number(frutas[i].aguacate);
     }
   }
 
